@@ -48,7 +48,7 @@ def q_retrace(R, D, q_i, v, rho_i, nenvs, nsteps, gamma):
 
 The acer paper introduces efficient trust regions which are supposed to stabilize training. It is implemented in baselines.acer.acer beginning at line 155
 
-k is a measure of the divergence of the current network with parameters $\theta$ and an average network with parameters $\theta_a$.
+k is a measure of the divergence of the current network with parameters θ and an average network with parameters θ<sub>a</sub>.
 
 It does appear to reduce variance in reward for the cartpole-v0 Environment in the demonstration notebook. 
 
