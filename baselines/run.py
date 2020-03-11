@@ -220,10 +220,10 @@ class Config(Namespace):
 
 def run(play=False, **config):
     fallback = Config(alg='acer', env='CartPole-v0', env_type=None, gamestate=None,
-                      log_path='./logs/cartpoole-acer-tmp/',
+                      log_path='./logs/acer/',
                       network=None, num_env=None, num_timesteps=30000.0, play=False, reward_scale=1.0,
                       save_path='./models/model', save_video_interval=0, save_video_length=200, seed=0)
-    extra_fallback = Config(trust_region=True, nsteps=128)
+    extra_fallback = Config(trust_region=True, nsteps=128, replay_ratio=4)
 
     for key in config:
         if key in fallback:
