@@ -24,7 +24,7 @@ The algorithm can be used for different Environments such as the CartPole-v0 or 
 ### Atari Environments
 
 The training in Atari environments is possible but difficult. 
-On the environment PongNoFrameskip-v4 it took about 16 hours on a 32-thread cpu to get close to the performance of the rule based pong ai.
+On the environment PongNoFrameskip-v4 it took about 16 hours on a 32-thread cpu to get close to the performance of the rule based pong ai. This pretrained model can be downloaded here https://drive.google.com/open?id=19PldQsUIw8lCs-Ox2ciPXObW59ZiyDTX.
 This training is based on Vision with a convolutional neural network feeding into a fully connected network. 
 
 
@@ -49,6 +49,8 @@ def q_retrace(R, D, q_i, v, rho_i, nenvs, nsteps, gamma):
 The acer paper introduces efficient trust regions which are supposed to stabilize training. It is implemented in baselines.acer.acer beginning at line 155
 
 k is a measure of the divergence of the current network with parameters $\theta$ and an average network with parameters $\theta_a$.
+
+It does appear to reduce variance in reward for the cartpole-v0 Environment in the demonstration notebook. 
 
 ![TrustRegion.png](images/TrustRegion.png)
 
