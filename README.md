@@ -2,10 +2,7 @@
 # A3C Acer Demo
 
 This Implementation is based on the OpenAI Baselines implementation
-     
-```bash
-sudo apt-get update && sudo apt-get install cmake libopenmpi-dev python3-dev zlib1g-dev
-```
+
 Tested with Tensorflow 1.14
 ```bash
     pip install tensorflow==1.14
@@ -36,9 +33,22 @@ This training is based on Vision with a convolutional neural network feeding int
 
 ![pong](images/pong.png)
 
-### Parameter comparison
+### Implementation details
 
-Acer can be used with and without efficient Trust Regions, they are supposed to stabilize training.
 
-![Retrace.png](images/TrustRegion.png)
+### Off-policy learning
+
+During the Experience replay stage the algorithm uses a variant of the retrace algorithm, the function is implemented in baselines.acer.acer:
+
+def q_retrace(R, D, q_i, v, rho_i, nenvs, nsteps, gamma):
+
+![Retrace.png](images/Retrace.png)
+
+### Trust Regions
+
+The acer paper introduces efficient trust regions which are supposed to stabilize training. It is implemented in baselines.acer.acer beginning at line 155
+
+k is a measure of the divergence of the current network with parameters $\theta$ and an average network with parameters $\theta_a$.
+
+![TrustRegion.png](images/TrustRegion.png)
 
